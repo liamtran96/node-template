@@ -1,0 +1,71 @@
+{
+  "name": "node-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist",
+  "scripts": {
+    "start": "node ./dist",
+    "server": "node ./dist",
+    "watch:dev": "NODE_ENV=development nodemon",
+    "clean": "rimraf dist",
+    "build": "npm-run-all clean transpile",
+    "transpile": "babel ./src --out-dir dist",
+    "dev": "NODE_ENV=development npm-run-all build server",
+    "prod": "NODE_ENV=production npm-run-all build server",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/runtime": "^7.22.6",
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "fs-extra": "^11.1.1",
+    "jsonwebtoken": "^9.0.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^7.4.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.0.0",
+    "winston": "^3.10.0",
+    "winston-daily-rotate-file": "^4.7.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.22.9",
+    "@babel/core": "^7.22.9",
+    "@babel/plugin-transform-runtime": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "cross-env": "^7.0.3",
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.22"
+  },
+  "nodemonConfig": {
+    "exec": "npm run dev",
+    "watch": [
+      "src/*",
+      "public/*"
+    ],
+    "ignore": [
+      "**/__tests__/**",
+      "*.test.js",
+      "*.spec.js"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      [
+        "@babel/transform-runtime"
+      ]
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
