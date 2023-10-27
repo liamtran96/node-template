@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const DB_URL = 'mongodb+srv://liamtran:CF0yFoWdBvTopaE1@cluster0.eyypqxe.mongodb.net/'; // Replace this with your actual MongoDB connection string
+const DB_URL = "mongodb+srv://blog:q9AvMzPKoC3tbUAg@cluster0.eyypqxe.mongodb.net/?retryWrites=true&w=majority" // Replace this with your actual MongoDB connection string
 
 export const databaseInit = async () => {
   try {
